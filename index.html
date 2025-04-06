@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clock App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Clock App</h1>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('local')">Local Time</button>
+    <button class="tab-button" onclick="showTab('world')">World Time</button>
+    <button class="tab-button" onclick="showTab('alarm')">Alarm</button>
+    <button class="tab-button" onclick="showTab('stopwatch')">Stopwatch</button>
+    <button class="tab-button" onclick="showTab('timer')">Timer</button>
+  </div>
+
+  <div id="local" class="section active">
+    <h2>Local Time</h2>
+    <div id="localTime"></div>
+  </div>
+
+  <div id="world" class="section">
+    <h2>World Time</h2>
+    <select id="timezoneSelect">
+      <option value="UTC">UTC</option>
+      <option value="America/New_York">New York</option>
+      <option value="Europe/London">London</option>
+      <option value="Asia/Tokyo">Tokyo</option>
+      <option value="Asia/Kolkata">Kolkata</option>
+    </select>
+    <div id="worldTime"></div>
+  </div>
+
+  <div id="alarm" class="section">
+    <h2>Alarm</h2>
+    <input type="time" id="alarmTime" />
+    <button id="setAlarm" onclick="setAlarm()">Set Alarm</button>
+    <div id="alarmStatus"></div>
+  </div>
+
+  <div id="stopwatch" class="section">
+    <h2>Stopwatch</h2>
+    <div id="stopwatchDisplay">00:00:00.000</div>
+    <div class="button-group">
+      <button class='stop' onclick="startStopwatch()">Start</button>
+      <button class='stop' onclick="stopStopwatch()">Stop</button>
+      <button class='stop' onclick="resetStopwatch()">Reset</button>
+      <button class='stop' onclick="lapStopwatch()">Lap</button>
+    </div>
+    <div id="stopwatchLaps" class="laps"></div>
+  </div>
+
+  <div id="timer" class="section">
+    <h2>Timer</h2>
+    <input type="number" id="timerMinutes" placeholder="Minutes" />
+    <div class="button-group">
+      <button class='stop' onclick="startTimer()">Start Timer</button>
+      <button class='stop' onclick="stopTimer()">Stop Timer</button>
+      <button class='stop' onclick="resetTimer()">Reset Timer</button>
+      <button class='stop' onclick="lapTimer()">Lap</button>
+    </div>
+    <div id="timerDisplay">00:00.000</div>
+    <div id="timerLaps" class="laps"></div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
